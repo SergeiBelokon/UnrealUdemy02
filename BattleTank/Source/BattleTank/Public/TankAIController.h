@@ -20,6 +20,12 @@ public:
     
     ATank* GetPlayerTank() const;
     
-    void BeginPlay() override;
+    virtual void BeginPlay() override;
+    
+    virtual void Tick(float DeltaTime) override;
+    
+private:
+    
+    void AimToThePlayer();
     
 };
