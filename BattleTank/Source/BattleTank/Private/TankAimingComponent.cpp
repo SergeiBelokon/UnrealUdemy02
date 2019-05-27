@@ -35,10 +35,10 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
         false,
         0,
         0,
-        ESuggestProjVelocityTraceOption::DoNotTrace,
-        FCollisionResponseParams::DefaultResponseParam,
-        TArray<AActor*>(),
-        true
+        ESuggestProjVelocityTraceOption::DoNotTrace
+//        FCollisionResponseParams::DefaultResponseParam,
+//        TArray<AActor*>(),
+//        true
     );
     
     if (bHaveAimSolution)
@@ -63,5 +63,5 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
     auto DeltaRotation = AimAsRotation - BarrelRotation;
 //    UE_LOG(LogTemp, Warning, TEXT("AimAsRotation:  %s"), *AimAsRotation.ToString());
     
-    Barrel->Elevate(5);
+    Barrel->Elevate(DeltaRotation.Pitch);
 }
